@@ -1,0 +1,33 @@
+Best fittness: 0.65
+Best individual: 1001111001011111111001101101001100110111
+Average fitness of populaion: 0.5010000000000001
+Best fittness: 0.675
+Best individual: 1110111111000001111011111111000101001111
+Average fitness of populaion: 1.1090000000000004
+Best fittness: 0.75
+Best individual: 1011011101111101111111101110011101110011
+Average fitness of populaion: 1.2650000000000001
+Best fittness: 0.775
+Best individual: 1011011101111101111111101110011101110111
+Average fitness of populaion: 1.3629999999999995
+Best fittness: 0.8
+Best individual: 1111000111011110110111110011111111111111
+Average fitness of populaion: 1.452
+Best fittness: 0.875
+Best individual: 1111101111111111110101110011111111111111
+Average fitness of populaion: 1.5260000000000005
+Best fittness: 0.875
+Best individual: 1111101111111111110101110011111111111111
+Average fitness of populaion: 1.6
+Best fittness: 0.9
+Best individual: 1111101111111111111111101110011111111111
+Average fitness of populaion: 1.6550000000000002
+Best fittness: 0.95
+Best individual: 1111101111111111111111101111111111111111
+Average fitness of populaion: 1.7164999999999992
+Best fittness: 0.95
+Best individual: 1111101111111111111111101111111111111111
+Average fitness of populaion: 1.793
+Best fittness: 1.0
+Best individual: 1111111111111111111111111111111111111111
+Average fitness of populaion: 1.8589999999999995
