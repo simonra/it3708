@@ -16,6 +16,8 @@ public class HyperbolicTangentNeuron {
 			weightedInput += input[i] * weight[i];
 		}
 		weightedInput += Params.biasNeuronWeight;
+		//Normalizes the weighted input to be between 0 and 1 assuming the inputs are in the range 0 to 1
+		weightedInput /= input.length + Params.biasNeuronWeight != 0 ? 1.0 : 0.0;
 		positiveExponential = Math.exp(weightedInput);
 		negativeExponential = Math.exp(-weightedInput);
 		output = ( positiveExponential - negativeExponential ) / ( positiveExponential + negativeExponential );
@@ -34,8 +36,10 @@ public class HyperbolicTangentNeuron {
 			weightedInput += input[i] * weight[i];
 		}
 		weightedInput += Params.biasNeuronWeight;
+		//Normalizes the weighted input to be between 0 and 1 assuming the inputs are in the range 0 to 1
+		weightedInput /= input.length + Params.biasNeuronWeight != 0 ? 1.0 : 0.0;
 		positiveExponential = Math.exp(weightedInput);
-		output = 1 - positiveExponential * positiveExponential;
+		output = 1.0 - positiveExponential * positiveExponential;
 		return output;
 	}
 }

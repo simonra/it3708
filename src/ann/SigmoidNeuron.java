@@ -15,6 +15,8 @@ public class SigmoidNeuron {
 			weightedInput += input[i] * weight[i];
 		}
 		weightedInput += Params.biasNeuronWeight;
+		//Normalizes the weighted input to be between 0 and 1 assuming the inputs are in the range 0 to 1
+		weightedInput /= input.length + Params.biasNeuronWeight != 0 ? 1.0 : 0.0;
 		output = 1.0 / (1.0 + Math.exp(- Params.sigmoidScalingConstant * weightedInput ) );
 		return output;
 	}
@@ -30,6 +32,8 @@ public class SigmoidNeuron {
 			weightedInput += input[i] * weight[i];
 		}
 		weightedInput += Params.biasNeuronWeight;
+		//Normalizes the weighted input to be between 0 and 1 assuming the inputs are in the range 0 to 1
+		weightedInput /= input.length + Params.biasNeuronWeight != 0 ? 1.0 : 0.0;
 		output = 1.0 / (1.0 + Math.exp(- Params.sigmoidScalingConstant * weightedInput ) );
 		output = output * ( 1 - output );
 		return output;
