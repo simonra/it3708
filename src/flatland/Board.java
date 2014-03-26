@@ -3,7 +3,8 @@ package flatland;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import ann.Params;
+import commons.Params;
+
 
 public class Board {
 	/** Contains the board itself */
@@ -23,7 +24,7 @@ public class Board {
 		ArrayList<TileContent> contentToBeDistributedOnBoard = new ArrayList<TileContent>();
 		int numberOfFlatlandSquares = Params.flatlandBoardSizeX * Params.flatlandBoardSizeY;
 		int ammountOfFoodToMake = (int) (numberOfFlatlandSquares * Params.flatlandFoodRatio); //int-cast rounds down
-		int ammountOfPoisonToMake = (int) (numberOfFlatlandSquares * Params.flatlandPoisnonRatio);
+		int ammountOfPoisonToMake = (int) (0.5 * numberOfFlatlandSquares * Params.flatlandPoisnonRatio);
 		int ammountOfEmptySquaresToMake = numberOfFlatlandSquares - ammountOfFoodToMake - ammountOfPoisonToMake;
 		for (int i = 0; i < ammountOfFoodToMake; i++) {
 			contentToBeDistributedOnBoard.add(TileContent.FOOD);

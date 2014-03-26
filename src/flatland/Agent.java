@@ -1,6 +1,6 @@
 package flatland;
 
-import ann.Params;
+import commons.Params;
 
 public class Agent {
 	// Primarily used for making drawing the agent easier

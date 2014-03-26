@@ -1,5 +1,7 @@
 package ann;
 
 public enum NeuronType {
-	LINEAR, SIGMOID, THAT_LAST_ONE;
+	LINEAR, STEP, RAMP, SIGMOID, HYPERBOLIC_TANGENT;
+	
+	/*Best resource for neuron math so far: http://ufldl.stanford.edu/wiki/index.php/Neural_Networks */
 }
