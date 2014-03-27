@@ -10,7 +10,7 @@ public class Board {
 	/** Contains the board itself */
 	TileContent[][] board;
 	/**The agent operating in the flatland world*/
-	Agent agent;
+	public Agent agent;
 
 	/**
 	 * The constructor for the flatland world. Fills the tiles according to the

@@ -1,5 +1,6 @@
 package commons;
 
+import ann.NeuronType;
 import flatland.Direction;
 
 public class Params {
@@ -9,6 +10,9 @@ public class Params {
 	public static int hiddenLayers = 0;
 	/**The number of neurons in each layer*/
 	public static int neuronsPerLayer = 10;
+	//Types of neurons to use:
+	/**Types of neurons used in the ann*/
+	public static NeuronType neuronTypeToUse = NeuronType.LINEAR;
 	//ANN activation function constants:
 	/**Bias neuron weight*/
 	public static double biasNeuronWeight = 0.0;

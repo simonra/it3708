@@ -19,6 +19,11 @@ public class Agent {
 	/** The current fitness of the agent */
 	double fitness;
 
+	TileContent contentLeft;
+	TileContent contentAhead;
+	TileContent contentRight;
+	
+	
 	/**
 	 * Constructor of the flatland agent. Initializes it in a certain direction
 	 * on a certain position, sets the food and poison consumed to 0, and sets
@@ -125,6 +130,7 @@ public class Agent {
 		return fitness;
 	}
 
+	
 	/**
 	 * Takes a board and tries to predict what would be the best move to have as
 	 * the agents next move
@@ -201,14 +207,19 @@ public class Agent {
 		// random
 		switch (world.board[xPosLeft][yPosLeft]) {
 		case FOOD:
-			return Direction.LEFT;
+			this.contentLeft = TileContent.FOOD;
+			bestTileFintess = 1;
+			bestDirection = Direction.LEFT;
+//			return Direction.LEFT;
 		case POISON:
+			this.contentLeft = TileContent.POISON;
 			if (bestTileFintess < 0) {
 				bestTileFintess = -1;
 				bestDirection = Direction.LEFT;
 			}
 			break;
 		default:
+			this.contentLeft = TileContent.EMPTY;
 			if (bestTileFintess < 1) {
 				bestTileFintess = 0;
 				bestDirection = Direction.LEFT;
@@ -217,14 +228,19 @@ public class Agent {
 		}
 		switch (world.board[xPosRight][yPosRight]) {
 		case FOOD:
-			return Direction.RIGHT;
+			this.contentRight = TileContent.FOOD;
+			bestTileFintess = 1;
+			bestDirection = Direction.RIGHT;
+//			return Direction.RIGHT;
 		case POISON:
+			this.contentRight = TileContent.POISON;
 			if (bestTileFintess < 0) {
 				bestTileFintess = -1;
 				bestDirection = Direction.RIGHT;
 			}
 			break;
 		default:
+			this.contentRight = TileContent.EMPTY;
 			if (bestTileFintess < 1) {
 				bestTileFintess = 0;
 				bestDirection = Direction.RIGHT;
@@ -233,14 +249,19 @@ public class Agent {
 		}
 		switch (world.board[xPosAhead][yPosAhead]) {
 		case FOOD:
-			return Direction.AHEAD;
+			this.contentAhead = TileContent.FOOD;
+			bestTileFintess = 1;
+			bestDirection = Direction.AHEAD;
+//			return Direction.AHEAD;
 		case POISON:
+			this.contentAhead = TileContent.POISON;
 			if (bestTileFintess < 0) {
 				bestTileFintess = -1;
 				bestDirection = Direction.AHEAD;
 			}
 			break;
 		default:
+			this.contentAhead = TileContent.EMPTY;
 			if (bestTileFintess < 1) {
 				bestTileFintess = 0;
 				bestDirection = Direction.AHEAD;
@@ -252,6 +273,25 @@ public class Agent {
 		// towards the direction it is already heading;
 		// return Direction.values()[(int)
 		// Math.random()*Direction.values().length];
+	}
+	
+	public boolean foodLeft(){
+		return this.contentLeft == TileContent.FOOD ? true : false;
+	}
+	public boolean foodAhead(){
+		return this.contentAhead == TileContent.FOOD ? true : false;
+	}
+	public boolean foodRight(){
+		return this.contentRight == TileContent.FOOD ? true : false;
+	}
+	public boolean poisonLeft(){
+		return this.contentLeft == TileContent.POISON ? true : false;
+	}
+	public boolean poisonAhead(){
+		return this.contentAhead == TileContent.POISON ? true : false;
+	}
+	public boolean poisonRight(){
+		return this.contentRight == TileContent.POISON ? true : false;
 	}
 
 	/** Makes a deep copy of this agent */
