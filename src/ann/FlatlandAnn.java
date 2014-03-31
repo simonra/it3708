@@ -26,7 +26,7 @@ public class FlatlandAnn {
 	 */
 	double[] weights;
 	/** The type of each neuron in the input layer */
-	NeuronType[] inputNeurons;
+	NeuronType[] outputNeurons;
 
 	/** The constructor of the flatland ann. */
 	public FlatlandAnn() {
@@ -34,7 +34,7 @@ public class FlatlandAnn {
 		outputs = new double[Params.numberOfFlatlandOutputNeurons];
 		weights = new double[Params.numberOfFlatlandInputNeurons
 				* Params.numberOfFlatlandOutputNeurons];
-		inputNeurons = new NeuronType[Params.numberOfFlatlandOutputNeurons];
+		outputNeurons = new NeuronType[Params.numberOfFlatlandOutputNeurons];
 	}
 
 	/** Constructor that sets weithts and initiates neuron types to use */
@@ -46,9 +46,9 @@ public class FlatlandAnn {
 		for (int i = 0; i < weights.length; i++) {
 			this.weights[i] = weights[i];
 		}
-		inputNeurons = new NeuronType[Params.numberOfFlatlandOutputNeurons];
-		for (int i = 0; i < inputNeurons.length; i++) {
-			inputNeurons[i] = Params.neuronTypeToUse;
+		outputNeurons = new NeuronType[Params.numberOfFlatlandOutputNeurons];
+		for (int i = 0; i < outputNeurons.length; i++) {
+			outputNeurons[i] = Params.neuronTypeToUse;
 		}
 	}
 
@@ -92,8 +92,8 @@ public class FlatlandAnn {
 		}else{
 			//no best direction was found so choose a random one
 			double random = Math.random();
-			if(random < 1/3) bestDirection = Direction.LEFT;
-			else if(random < 2/3) bestDirection = Direction.AHEAD;
+			if(random < 1.0/3.0) bestDirection = Direction.LEFT;
+			else if(random < 2.0/3.0) bestDirection = Direction.AHEAD;
 			else bestDirection = Direction.RIGHT;
 		}
 		

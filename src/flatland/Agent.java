@@ -113,6 +113,8 @@ public class Agent {
 		movesDone++;
 
 		// TODO: oppdatere fitness-counter her?
+		//Gjør det for testing:
+		getFitness();
 	}
 
 	/**

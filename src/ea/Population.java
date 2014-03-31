@@ -5,7 +5,6 @@ import java.util.Collections;
 
 import commons.Params;
 import commons.Params.AdultSelectionType;
-import commons.Params.Problem;
 
 
 public class Population {
@@ -37,6 +36,7 @@ public class Population {
 	}
 
 	public void createFitnesses() {
+		//TODO gjør alt
 		averageFitness = 0;
 		for (Genotype child : children) {
 			child.setFitness(eaHeuristic.getGenotypeFitness(child));
@@ -47,6 +47,8 @@ public class Population {
 			}
 		}
 		averageFitness /= Params.SIZE_OF_POPULATION;
+		
+		eaHeuristic.refreshStockWorlds();
 	}
 
 	public void adultSelection() {
@@ -79,7 +81,7 @@ public class Population {
 	}
 
 	public boolean isSolved() {
-		return bestFitness == 1;
+		return false;
 	}
 	
 	void fullGenerationalReplacement(){

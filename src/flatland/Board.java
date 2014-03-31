@@ -111,4 +111,15 @@ public class Board {
 		return outString;
 	}
 	
+	/**Makes a deep copy of the board*/
+	public Board copyBoard(){
+		Board copy = new Board();
+		for (int i = 0; i < this.board.length; i++) {
+			for (int j = 0; j < this.board[0].length; j++) {
+				copy.board[i][j] = this.board[i][j];
+			}
+		}
+		copy.agent = this.agent.copyAgent();
+		return copy;
+	}
 }

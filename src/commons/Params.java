@@ -50,15 +50,16 @@ public class Params {
 	public static int numberOfFlatlandInputNeurons = 6;
 	/**The number of outputs from the flatland ann*/
 	public static int numberOfFlatlandOutputNeurons = 3;
+	/**The number of weights in the ann*/
+	public static int numberOfWeights = numberOfFlatlandInputNeurons * numberOfFlatlandOutputNeurons;
+	
+	public static boolean staticWorlds = true;
 	
 	public static int maxNumberOfGenerations = 500;
 	
 	
 	//------------------------------------------------------------------------------------
 	//EA params:
-	public enum Problem{
-		OneMax, GlobalSurprisingSequences, LocalSurprisingSequences;
-	}
 	public enum AdultSelectionType{
 		FullGenerationalReplacement, OverProductionReplacement, GenerationalMixing;
 	}
@@ -66,8 +67,12 @@ public class Params {
 		TournamentSelection, UniformSelection, FitnessProportionateSelection, SigmaScalingSelection;
 	}
 	
-	public static int SIZE_OF_POPULATION = 200;
-	public static int NUMBER_OF_PAIRS_THAT_GET_TO_REPRODUCE = 100;
+	public static int GENOTYPE_BITS_PER_WEIGHT = 8;
+	public static int GENOTYPE_SIZE_FLATLAND = GENOTYPE_BITS_PER_WEIGHT * numberOfWeights;
+	public static int NUMBER_OF_FLATLAND_WORLDS = 5;
+	
+	public static int SIZE_OF_POPULATION = 50;
+	public static int NUMBER_OF_PAIRS_THAT_GET_TO_REPRODUCE = 25;
 	
 	public static double MUTATION_CHANCE = 0.0002;
 	public static double CROSSOVER_CHANCE = 0.999;
@@ -75,15 +80,6 @@ public class Params {
 	
 	public static int TOURNAMENT_SELECTION_GROUP_SIZE = 4;
 	public static double TOURNAMENT_SELECTION_THRESHOLD = 0.1;
-	
-//	public static int ONE_MAX_BIT_VECTOR_SIZE = 40;
-//	public static boolean ONE_MAX_RANDOM_BIT_VECTOR = false;
-//	public static int SYMBOL_SET_SIZE = 19;
-//	public static int SURPRISING_SEQUENCES_SEQUENCE_SIZE = 120;
-	//TODO: bare flatland genotype and phenotype
-	
-//	public static Problem CURRENT_PROBLEM = Problem.LocalSurprisingSequences;
-	//TODO: bare flatland
 	public static int MAX_NUMBER_OF_GENERATIONS = maxNumberOfGenerations;
 	
 	public static AdultSelectionType ADULT_SELECTION_TYPE = AdultSelectionType.FullGenerationalReplacement;
