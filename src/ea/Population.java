@@ -25,28 +25,9 @@ public class Population {
 		sizeOfPopulation = Params.SIZE_OF_POPULATION;
 
 		for (int i = 0; i < sizeOfPopulation; i++) {
-			if (Params.CURRENT_PROBLEM == Problem.OneMax)
-//				children.add(new OneMaxGenotype());
-				;
-			else if (Params.CURRENT_PROBLEM == Problem.GlobalSurprisingSequences)
-//				children.add(new SurprisingSequencesGenotype());
-				;
-			else if (Params.CURRENT_PROBLEM == Problem.LocalSurprisingSequences)
-//				children.add(new SurprisingSequencesGenotype());
-				;
-			else
-				children.add(null);
+			children.add(new FlatlandGenotype());
 		}
-		
-		if(Params.CURRENT_PROBLEM == Problem.OneMax)
-//			eaHeuristic = new OneMaxHeuristic();
-			;
-		else if(Params.CURRENT_PROBLEM == Problem.GlobalSurprisingSequences)
-//			eaHeuristic = new SurprisingSequencesHeuristic();
-			;
-		else if(Params.CURRENT_PROBLEM == Problem.LocalSurprisingSequences)
-//			eaHeuristic = new SurprisingSequencesHeuristic();
-			;
+		eaHeuristic = new FlatlandHeuristic();
 	}
 
 	public void developPopulation() {

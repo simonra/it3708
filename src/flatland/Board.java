@@ -50,4 +50,65 @@ public class Board {
 	}
 	
 	
+	/**Checks the agents current position and orientation, 
+	 * calculates target square, 
+	 * updates the square the agent moved from to contain empty,
+	 * calls agents performMove with the direction given and the content of the tile it's moving to,
+	 * updates the square tha agent moves to to contain agent */
+	public void moveAgent(Direction direction){
+		int targetXPos = -1;
+		int targetYPos = -1;
+		if( (agent.orientation == Direction.UP && direction == Direction.AHEAD ) 
+			|| (agent.orientation == Direction.LEFT && direction == Direction.RIGHT )
+			|| (agent.orientation == Direction.RIGHT && direction == Direction.LEFT ) 
+			){
+			targetXPos = agent.xPosition;
+			targetYPos = agent.yPosition - 1;
+		}else if( (agent.orientation == Direction.DOWN && direction == Direction.AHEAD )
+				|| ( agent.orientation == Direction.LEFT && direction == Direction.LEFT )
+				|| ( agent.orientation == Direction.RIGHT && direction == Direction.RIGHT )
+				){
+			targetXPos = agent.xPosition;
+			targetYPos = agent.yPosition + 1;
+		}else if( ( agent.orientation == Direction.LEFT && direction == Direction.AHEAD )
+				|| ( agent.orientation == Direction.UP && direction == Direction.LEFT )
+				|| ( agent.orientation == Direction.DOWN && direction == Direction.RIGHT )
+				){
+			targetXPos = agent.xPosition - 1;
+			targetYPos = agent.yPosition;
+		}else{
+			targetXPos = agent.xPosition + 1;
+			targetYPos = agent.yPosition;
+		}
+		targetXPos = targetXPos % Params.flatlandBoardSizeX;
+		targetYPos = targetYPos % Params.flatlandBoardSizeY;
+		if(targetXPos < 0) targetXPos = Params.flatlandBoardSizeX - 1;
+		if(targetYPos < 0) targetYPos = Params.flatlandBoardSizeY - 1;
+		board[agent.xPosition][agent.yPosition] = TileContent.EMPTY;
+		agent.performMove(direction, board[targetXPos][targetYPos]);
+		board[targetXPos][targetYPos] = TileContent.AGENT;
+	}
+	
+	
+	
+	
+	/**ToString for testing purposes*/
+	public String toString(){
+		String outString = "";
+		for (int i = 0; i < Params.flatlandBoardSizeX; i++) {
+			for (int j = 0; j < Params.flatlandBoardSizeY; j++) {
+				if(board[i][j] == TileContent.EMPTY)
+					outString += "#";
+				else if(board[i][j] == TileContent.FOOD)
+					outString += "+";
+				else if(board[i][j] == TileContent.POISON)
+					outString += "-";
+				else if(board[i][j] == TileContent.AGENT)
+					outString += "A";
+			}
+			outString += "\n";
+		}
+		return outString;
+	}
+	
 }

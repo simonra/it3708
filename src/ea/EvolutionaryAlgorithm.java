@@ -20,38 +20,39 @@ public class EvolutionaryAlgorithm {
 //			System.out.println(mymap.get("a"));
 	}
 	static boolean loopCheckAndOtherMagic(Population population){
-		if(Params.CURRENT_PROBLEM == Problem.GlobalSurprisingSequences || Params.CURRENT_PROBLEM == Problem.LocalSurprisingSequences ){
-			if(population.isSolved()){
-				String writeString = "";
-				writeString = "Size of symbol set: " + Params.SYMBOL_SET_SIZE;
-				writeToFile("Surprising sequences log file", writeString);
-				writeString = "Population size: " + Params.SIZE_OF_POPULATION;
-				writeToFile("Surprising sequences log file", writeString);
-				writeString = "Generations: " + numberOfGenerations;
-				writeToFile("Surprising sequences log file", writeString);
-				writeString = "Sequence length: " + Params.SURPRISING_SEQUENCES_SEQUENCE_SIZE;
-				writeToFile("Surprising sequences log file", writeString);
-				writeString = "Sequence: " + population.bestIndividual.toString();
-				writeToFile("Surprising sequences log file", writeString);
-				
-				Params.SURPRISING_SEQUENCES_SEQUENCE_SIZE++;
-				System.out.println("Sequence size: "+Params.SURPRISING_SEQUENCES_SEQUENCE_SIZE);
-//				Population theNewPopulation = new Population();
-//				population = theNewPopulation;
-				System.out.println("Size of sequences in the population: " + population.children.get(0).toString());
-				numberOfGenerations = 0;
-				evolutionaryAlgorithm();
-				return false;
-			}else if(numberOfGenerations > Params.MAX_NUMBER_OF_GENERATIONS){
-				return false;
-			}
-			else
-				return true;
-		}
-		else{
-			return !population.isSolved();
-		}
-		
+//		if(Params.CURRENT_PROBLEM == Problem.GlobalSurprisingSequences || Params.CURRENT_PROBLEM == Problem.LocalSurprisingSequences ){
+//			if(population.isSolved()){
+//				String writeString = "";
+//				writeString = "Size of symbol set: " + Params.SYMBOL_SET_SIZE;
+//				writeToFile("Surprising sequences log file", writeString);
+//				writeString = "Population size: " + Params.SIZE_OF_POPULATION;
+//				writeToFile("Surprising sequences log file", writeString);
+//				writeString = "Generations: " + numberOfGenerations;
+//				writeToFile("Surprising sequences log file", writeString);
+//				writeString = "Sequence length: " + Params.SURPRISING_SEQUENCES_SEQUENCE_SIZE;
+//				writeToFile("Surprising sequences log file", writeString);
+//				writeString = "Sequence: " + population.bestIndividual.toString();
+//				writeToFile("Surprising sequences log file", writeString);
+//				
+//				Params.SURPRISING_SEQUENCES_SEQUENCE_SIZE++;
+//				System.out.println("Sequence size: "+Params.SURPRISING_SEQUENCES_SEQUENCE_SIZE);
+////				Population theNewPopulation = new Population();
+////				population = theNewPopulation;
+//				System.out.println("Size of sequences in the population: " + population.children.get(0).toString());
+//				numberOfGenerations = 0;
+//				evolutionaryAlgorithm();
+//				return false;
+//			}else if(numberOfGenerations > Params.MAX_NUMBER_OF_GENERATIONS){
+//				return false;
+//			}
+//			else
+//				return true;
+//		}
+//		else{
+//			return !population.isSolved();
+//		}
+//		
+		return !population.isSolved();
 //		return true;
 	}
 	

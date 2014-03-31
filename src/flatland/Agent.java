@@ -96,17 +96,17 @@ public class Agent {
 
 		// Update position
 		if (orientation == Direction.UP) {
-			yPosition = (yPosition - 1) % 8;
+			yPosition = (yPosition - 1) % Params.flatlandBoardSizeY;
 			if (yPosition == -1)
-				yPosition = 7;
+				yPosition = Params.flatlandBoardSizeY - 1;
 		} else if (orientation == Direction.DOWN) {
-			yPosition = (yPosition + 1) % 8;
+			yPosition = (yPosition + 1) % Params.flatlandBoardSizeY;
 		} else if (orientation == Direction.LEFT) {
-			xPosition = (xPosition - 1) % 8;
+			xPosition = (xPosition - 1) % Params.flatlandBoardSizeX;
 			if (xPosition == -1)
-				xPosition = 7;
+				xPosition = Params.flatlandBoardSizeX - 1;
 		} else {
-			xPosition = (xPosition + 1) % 8;
+			xPosition = (xPosition + 1) % Params.flatlandBoardSizeX;
 		}
 
 		// Update movesDone counter

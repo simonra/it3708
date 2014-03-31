@@ -21,7 +21,8 @@ public class FlatlandAnn {
 	double[] outputs;
 	/**
 	 * The internal weights of the flatland network. The way it works is that it
-	 * assigns a weight for each input to every output.
+	 * assigns a weight for each input to every output. Hence its size is the 
+	 * number of input neurons * the number of output neurons
 	 */
 	double[] weights;
 	/** The type of each neuron in the input layer */
