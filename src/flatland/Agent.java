@@ -9,8 +9,8 @@ public class Agent {
 	int poisonEaten;
 	int foodEaten;
 	// Used to determine the agents current position on the board
-	int xPosition;
-	int yPosition;
+	public int xPosition;
+	public int yPosition;
 	/**
 	 * Used for fitness evaluation (an agent that runs around in circles and
 	 * doesn't interact with its environment is a boring agent)

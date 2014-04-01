@@ -16,13 +16,23 @@ import flatland.Board;
 import flatland.TileContent;
 
 public class FlatlandGrid extends GameGrid{
-	Gson gson;
+	static Gson gson = new Gson();;
 	
 	
 	public FlatlandGrid() {
-		super(Params.flatlandBoardSizeX, Params.flatlandBoardSizeY, 60, java.awt.Color.red);
+		super(Params.flatlandBoardSizeX, Params.flatlandBoardSizeY, 60, java.awt.Color.CYAN);
+		
+		
+		
+		
+//		FlatlandGenotype genotype = gson.fromJson(bestFlatlandAnnPhenotype, FlatlandGenotype.class);
+//		FlatlandGenotype genotype = gson.fromJson(readTextFromFile("bestFlatlandAnnPhenotype.txt"), FlatlandGenotype.class);
+//		addActor(new FlatlandAgent(), new Location(0,0));
+//		show();
+	}
+	
+	public static void main(String[] args) {
 		FlatlandGrid[] grids;
-		gson = new Gson();
 		double[] weights;
 		Board[] worlds;
 		FlatlandAnn ann;
@@ -50,29 +60,26 @@ public class FlatlandGrid extends GameGrid{
 		grids = new FlatlandGrid[worlds.length];
 		for (int i = 0; i < worlds.length; i++) {
 			FlatlandGrid grid = new FlatlandGrid();
-			for (Board world : worlds) {
-				for (int j = 0; j < world.board.length; j++) {
-					for (int k = 0; k < world.board[0].length; k++) {
-						if(world.board[j][k] == TileContent.EMPTY){
-							grid.addActor(new FoodTile(), new Location(j, k));
-						}
+			for (int j = 0; j < worlds[i].board.length; j++) {
+				for (int k = 0; k < worlds[i].board[0].length; k++) {
+					if(worlds[i].board[j][k] == TileContent.EMPTY){
+						continue;
+					}else if(worlds[i].board[j][k] == TileContent.FOOD){
+						grid.addActor(new FoodTile(), new Location(j, k));
+					}else if(worlds[i].board[j][k] == TileContent.POISON){
+						grid.addActor(new PoisonTile(), new Location(j, k));
+					}else if(worlds[i].board[j][k] == TileContent.AGENT){
+						grid.addActor(new AgentTile(worlds[i], ann), new Location(j, k));
 					}
 				}
 			}
 			grids[i] = grid;
 		}
+		
+		for (FlatlandGrid grid : grids) {
+			grid.show();
+		}
 		System.out.println(gson.toJson(worlds[4].agent));
-		
-		
-		
-//		FlatlandGenotype genotype = gson.fromJson(bestFlatlandAnnPhenotype, FlatlandGenotype.class);
-//		FlatlandGenotype genotype = gson.fromJson(readTextFromFile("bestFlatlandAnnPhenotype.txt"), FlatlandGenotype.class);
-//		addActor(new FlatlandAgent(), new Location(0,0));
-		show();
-	}
-	
-	public static void main(String[] args) {
-		FlatlandGrid flg = new FlatlandGrid();
 	}
 	
 	public static String readTextFromFile(String fileName){
