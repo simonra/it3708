@@ -40,7 +40,8 @@ public class EvolutionaryAlgorithm {
 //			writeToFile("MytextFile.txt", "Best individual: " +  gson.toJson(population.bestIndividual) );
 			writeToFile("MytextFile.txt", "Average fitness of populaion: " + population.averageFitness);
 			createFile("bestFlatlandAnnPhenotype.txt");
-			writeToFile("bestFlatlandAnnPhenotype.txt", gson.toJson(population.bestIndividual));
+			FlatlandGenotype bestGenotype = (FlatlandGenotype) population.bestIndividual;
+			writeToFile("bestFlatlandAnnPhenotype.txt", gson.toJson(bestGenotype.phenotype));
 			numberOfGenerations ++;
 		}
 		System.out.println(numberOfGenerations);

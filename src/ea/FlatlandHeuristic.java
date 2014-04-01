@@ -2,10 +2,10 @@ package ea;
 
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+
 import ann.FlatlandAnn;
-
 import commons.Params;
-
 import flatland.Board;
 import flatland.FlatlandMain;
 
@@ -18,6 +18,8 @@ public class FlatlandHeuristic implements EAHeuristic {
 		for (int i = 0; i < Params.NUMBER_OF_FLATLAND_WORLDS; i++) {
 			stockWorlds[i] = new Board();
 		}
+		EvolutionaryAlgorithm.createFile("Worlds.txt");
+		EvolutionaryAlgorithm.writeToFile("Worlds.txt", new Gson().toJson(stockWorlds));
 	}
 	
 	@Override
@@ -45,6 +47,8 @@ public class FlatlandHeuristic implements EAHeuristic {
 		if(!Params.staticWorlds){
 			for (int i = 0; i < Params.NUMBER_OF_FLATLAND_WORLDS; i++) {
 				stockWorlds[i] = new Board();
+				EvolutionaryAlgorithm.createFile("Worlds.txt");
+				EvolutionaryAlgorithm.writeToFile("Worlds.txt", new Gson().toJson(stockWorlds));
 			}				
 		}
 	}

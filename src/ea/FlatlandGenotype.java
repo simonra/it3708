@@ -102,6 +102,11 @@ public class FlatlandGenotype implements Genotype {
 	}
 	
 	private class FlatlandGenotypeComparator implements Comparator<Genotype> {
+		
+		public FlatlandGenotypeComparator(){
+			
+		}
+		
 		@Override
 		public int compare(Genotype g1, Genotype g2) {
 			if(g1.getFitness() == g2.getFitness())
