@@ -8,7 +8,7 @@ import commons.Params;
 
 public class Board {
 	/** Contains the board itself */
-	TileContent[][] board;
+	public TileContent[][] board;
 	/**The agent operating in the flatland world*/
 	public Agent agent;
 
