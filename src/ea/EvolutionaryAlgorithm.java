@@ -36,9 +36,10 @@ public class EvolutionaryAlgorithm {
 			population.reproduction();
 			System.out.println("The best fitness was: " + population.bestFitness + ", and it was achieved by the individual:");
 			System.out.println(population.bestIndividual.toString());
-			writeToFile("MytextFile.txt", "Best fitness: " + population.bestFitness);
+			//Best fitness , average fitness
+			writeToFile("MytextFile.txt", population.bestFitness + "," + population.averageFitness + "s");
 //			writeToFile("MytextFile.txt", "Best individual: " +  gson.toJson(population.bestIndividual) );
-			writeToFile("MytextFile.txt", "Average fitness of populaion: " + population.averageFitness);
+//			writeToFile("MytextFile.txt", "Average fitness of populaion: " + population.averageFitness);
 			createFile("bestFlatlandAnnPhenotype.txt");
 			FlatlandGenotype bestGenotype = (FlatlandGenotype) population.bestIndividual;
 			writeToFile("bestFlatlandAnnPhenotype.txt", gson.toJson(bestGenotype.phenotype));

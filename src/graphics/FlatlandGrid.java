@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.swing.JFrame;
+
+import org.math.plot.Plot2DPanel;
+
 import ann.FlatlandAnn;
 
 import com.google.gson.Gson;
@@ -79,8 +83,14 @@ public class FlatlandGrid extends GameGrid{
 		for (FlatlandGrid grid : grids) {
 			grid.show();
 		}
+		
+		Plot plot = new Plot();
+		plot.showStats();
+		
 		System.out.println(gson.toJson(worlds[4].agent));
 	}
+	
+	
 	
 	public static String readTextFromFile(String fileName){
 		BufferedReader br = null;

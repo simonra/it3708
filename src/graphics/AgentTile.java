@@ -29,7 +29,6 @@ public class AgentTile extends Actor{
 //		this.move(-1);
 //		this.setDirection(0);
 		this.turn(180);
-		this.set
 //		this.setLocation(board.agent.xPosition, board.agent.yPosition);
 		//remember to turn the agent
 		
